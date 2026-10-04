@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>PERMINTAAN MAAF</title>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "SF Pro Display",
+            "SF Pro Text",
+            "Segoe UI",
+            sans-serif;
+
+        background:
+            radial-gradient(
+                circle at 50% 20%,
+                #193b68 0%,
+                transparent 35%
+            ),
+            linear-gradient(
+                180deg,
+                #071525 0%,
+                #020812 100%
+            );
+
+        color: white;
+
+        min-height: 100vh;
+
+        overflow-x: hidden;
+    }
+
+
+    /* =====================================
+       BACKGROUND
+    ===================================== */
+
+    .background {
+        position: fixed;
+        inset: 0;
+
+        overflow: hidden;
+
+        pointer-events: none;
+
+        z-index: 0;
+    }
+
+
+    .bubble {
+        position: absolute;
+
+        width: 6px;
+        height: 6px;
+
+        background:
+            rgba(150, 210, 255, 0.35);
+
+        border-radius: 50%;
+
+        animation:
+            float 8s infinite ease-in-out;
+    }
+
+
+    .bubble:nth-child(1) {
+        left: 10%;
+        top: 80%;
+        animation-delay: 0s;
+    }
+
+    .bubble:nth-child(2) {
+        left: 25%;
+        top: 70%;
+        animation-delay: 2s;
+    }
+
+    .bubble:nth-child(3) {
+        left: 45%;
+        top: 85%;
+        animation-delay: 1s;
+    }
+
+    .bubble:nth-child(4) {
+        left: 70%;
+        top: 75%;
+        animation-delay: 3s;
+    }
+
+    .bubble:nth-child(5) {
+        left: 90%;
+        top: 65%;
+        animation-delay: 1.5s;
+    }
+
+
+    @keyframes float {
+
+        0% {
+            transform:
+                translateY(0)
+                scale(1);
+
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 1;
+        }
+
+        100% {
+            transform:
+                translateY(-100vh)
+                scale(1.5);
+
+            opacity: 0;
+        }
+    }
+
+
+
+    /* =====================================
+       SCREEN 1
+    ===================================== */
+
+    #screen1 {
+
+        position: relative;
+
+        z-index: 2;
+
+        min-height: 100vh;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 30px;
+
+        transition:
+            opacity 0.8s ease,
+            transform 0.8s ease;
+    }
+
+
+    /* GAMBAR SEDIH SCREEN 1 */
+
+    .sad-emoji {
+
+        margin-bottom: 25px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+    }
+
+
+    .sad-emoji img {
+
+        width: 110px;
+
+        height: 110px;
+
+        object-fit: contain;
+
+        filter:
+            drop-shadow(
+                0 0 20px
+                rgba(100, 180, 255, 0.35)
+            );
+
+        animation:
+            sadFloat 3s ease-in-out infinite;
+    }
+
+
+    @keyframes sadFloat {
+
+        0%,
+        100% {
+
+            transform:
+                translateY(0);
+        }
+
+        50% {
+
+            transform:
+                translateY(-10px);
+        }
+    }
+
+
+    .screen1-title {
+
+        font-size:
+            clamp(30px, 7vw, 52px);
+
+        font-weight: 700;
+
+        letter-spacing: -1.5px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .screen1-subtitle {
+
+        color: #a9c9e9;
+
+        font-size: 16px;
+
+        max-width: 450px;
+
+        line-height: 1.6;
+
+        margin-bottom: 35px;
+    }
+
+
+    /* TOMBOL */
+
+    .open-button {
+
+        border: none;
+
+        cursor: pointer;
+
+        padding:
+            15px 30px;
+
+        border-radius: 999px;
+
+        color: white;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        background:
+            linear-gradient(
+                135deg,
+                #2878d7,
+                #174c91
+            );
+
+        box-shadow:
+            0 10px 35px
+            rgba(22, 106, 190, 0.35),
+
+            inset 0 1px
+            rgba(255,255,255,0.2);
+
+        transition:
+            all 0.3s ease;
+    }
+
+
+    .open-button:hover {
+
+        transform:
+            translateY(-3px)
+            scale(1.03);
+
+        box-shadow:
+            0 15px 45px
+            rgba(22, 106, 190, 0.5);
+    }
+
+
+    .open-button:active {
+
+        transform:
+            scale(0.96);
+    }
+
+
+
+    /* =====================================
+       SCREEN 2
+    ===================================== */
+
+    #screen2 {
+
+        position: relative;
+
+        z-index: 2;
+
+        min-height: 100vh;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        padding:
+            70px 20px;
+    }
+
+
+    .content {
+
+        width: 100%;
+
+        max-width: 700px;
+
+        text-align: center;
+    }
+
+
+
+    /* GAMBAR SEDIH SCREEN 2 */
+
+    .small-emoji {
+
+        margin-bottom: 15px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+    }
+
+
+    .small-emoji img {
+
+        width: 75px;
+
+        height: 75px;
+
+        object-fit: contain;
+
+        filter:
+            drop-shadow(
+                0 0 15px
+                rgba(100, 180, 255, 0.3)
+            );
+    }
+
+
+    .title {
+
+        font-size:
+            clamp(35px, 8vw, 65px);
+
+        font-weight: 800;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .blue-line {
+
+        width: 60px;
+
+        height: 3px;
+
+        background: #4b9fff;
+
+        margin:
+            0 auto 35px;
+
+        border-radius: 999px;
+
+        box-shadow:
+            0 0 15px #4b9fff;
+    }
+
+
+
+    /* =====================================
+       MESSAGE
+    ===================================== */
+
+    .message-card {
+
+        text-align: left;
+
+        padding: 30px;
+
+        border-radius: 25px;
+
+        background:
+            rgba(20, 45, 75, 0.55);
+
+        border:
+            1px solid
+            rgba(130, 190, 255, 0.15);
+
+        box-shadow:
+            0 20px 60px
+            rgba(0,0,0,0.35),
+
+            inset 0 1px
+            rgba(255,255,255,0.05);
+
+        backdrop-filter:
+            blur(15px);
+
+        margin-bottom: 30px;
+    }
+
+
+    .message-card p {
+
+        color: #d9e9f8;
+
+        font-size: 17px;
+
+        line-height: 1.9;
+
+        margin-bottom: 18px;
+    }
+
+
+    .message-card p:last-child {
+
+        margin-bottom: 0;
+    }
+
+
+
+    /* =====================================
+       GAMBAR DALAM TEKS
+    ===================================== */
+
+    .inline-image {
+
+        width: 28px;
+
+        height: 28px;
+
+        object-fit: contain;
+
+        vertical-align: middle;
+
+        display: inline-block;
+
+        margin-left: 5px;
+
+        filter:
+            drop-shadow(
+                0 0 8px
+                rgba(100,180,255,0.3)
+            );
+    }
+
+
+
+    /* =====================================
+       MUSIC
+       TIDAK ADA PLAYER
+    ===================================== */
+
+    /*
+        Audio sengaja disembunyikan.
+        Musik akan dimainkan melalui
+        tombol pada screen pertama.
+    */
+
+    #backgroundMusic {
+        display: none;
+    }
+
+
+
+    /* =====================================
+       PHOTO
+    ===================================== */
+
+    .photo-section {
+
+        margin-top: 20px;
+
+        width: 100%;
+    }
+
+
+    .photo-title {
+
+        font-size: 15px;
+
+        color: #89add0;
+
+        margin-bottom: 15px;
+    }
+
+
+    .photo-frame {
+
+        width: 100%;
+
+        padding: 8px;
+
+        border-radius: 25px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(88, 164, 235, 0.6),
+                rgba(15, 45, 75, 0.3)
+            );
+
+        box-shadow:
+            0 20px 60px
+            rgba(0,0,0,0.4);
+    }
+
+
+    .photo-frame img {
+
+        width: 100%;
+
+        display: block;
+
+        border-radius: 19px;
+
+        object-fit: cover;
+
+        max-height: 600px;
+    }
+
+
+
+    /* =====================================
+       FOOTER
+    ===================================== */
+
+    .footer {
+
+        margin-top: 45px;
+
+        color: #617f9f;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .footer-image {
+
+        width: 35px;
+
+        height: 35px;
+
+        object-fit: contain;
+
+        margin-top: 10px;
+
+        filter:
+            drop-shadow(
+                0 0 8px
+                rgba(100,180,255,0.3)
+            );
+    }
+
+
+
+    /* =====================================
+       TRANSITION
+    ===================================== */
+
+    .hidden {
+
+        opacity: 0;
+
+        transform:
+            scale(0.95);
+
+        pointer-events: none;
+    }
+
+
+    .show {
+
+        display: flex !important;
+
+        animation:
+            showScreen 1s ease forwards;
+    }
+
+
+    @keyframes showScreen {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+    }
+
+
+
+    /* =====================================
+       MOBILE
+    ===================================== */
+
+    @media (max-width: 600px) {
+
+        #screen2 {
+
+            padding:
+                50px 15px;
+        }
+
+
+        .message-card {
+
+            padding: 23px;
+        }
+
+
+        .message-card p {
+
+            font-size: 15px;
+        }
+
+
+        .sad-emoji img {
+
+            width: 90px;
+
+            height: 90px;
+        }
+
+
+        .small-emoji img {
+
+            width: 65px;
+
+            height: 65px;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================
+     BACKGROUND
+====================================== -->
+
+<div class="background">
+
+    <div class="bubble"></div>
+
+    <div class="bubble"></div>
+
+    <div class="bubble"></div>
+
+    <div class="bubble"></div>
+
+    <div class="bubble"></div>
+
+</div>
+
+
+
+<!-- =====================================
+     AUDIO
+====================================== -->
+
+<!--
+    TIDAK ADA PLAYER.
+
+    Lagu akan mulai ketika tombol
+    "tekan untuk love aku" ditekan.
+
+    Ganti lagu.mp3 dengan nama file lagu kamu.
+-->
+
+<audio id="backgroundMusic" preload="auto">
+
+    <source
+        src="lagu.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<!-- =====================================
+     SCREEN 1
+====================================== -->
+
+<section id="screen1">
+
+
+    <!-- GAMBAR 1 -->
+
+    <div class="sad-emoji">
+
+        <img
+            src="gambar1.png"
+            alt="Gambar sedih">
+
+    </div>
+
+
+    <h1 class="screen1-title">
+
+        Aku minta maaf...
+
+    </h1>
+
+
+    <p class="screen1-subtitle">
+
+        hai bintang mu ini ingin meminta maaf
+        soal tadi
+
+        <br>
+
+        minta tolong dong pencet ini
+
+    </p>
+
+
+    <button
+        class="open-button"
+        onclick="openMessage()">
+
+        tekan untuk love aku
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================
+     SCREEN 2
+====================================== -->
+
+<section id="screen2">
+
+
+    <div class="content">
+
+
+        <!-- GAMBAR 2 -->
+
+        <div class="small-emoji">
+
+            <img
+                src="gambar2.png"
+                alt="Gambar sedih">
+
+        </div>
+
+
+        <h1 class="title">
+
+            AKU MINTA MAAAF
+
+        </h1>
+
+
+        <div class="blue-line"></div>
+
+
+
+        <!-- =================================
+             PESAN
+        ================================== -->
+
+        <div class="message-card">
+
+
+            <p>
+
+                dinar
+
+            </p>
+
+
+            <p>
+
+                aku tau mungkin minta maaf saja
+                gak cukup buat ini t__t
+
+            </p>
+
+
+            <p>
+
+                aku sadar kesalahan ku yang tadi
+                tu gak bisa di benarkan
+                soalnya atas kelalaian ku sendiri,
+                jadinya kaya gitu
+
+            </p>
+
+
+            <p>
+
+                tp aku bener bener nyesel banget
+                tidak mengecek gitu dan akhirnya
+                salah pahaam
+
+            </p>
+
+
+            <p>
+
+                aku gak pengen mencari alasan
+                buat membenarkan kesalahan ku
+
+                <br><br>
+
+                iya aku tau tadi aku salah ngetik
+                typo kaya gitu
+
+            </p>
+
+
+            <p>
+
+                maaf kalo gara gara tadi jadi
+                menimbulkan perseteruan diantara kita
+
+                <br><br>
+
+                minta maaf juga karna kelalaian ku
+                kamu jadi sebeel lagi sama akuu
+
+            </p>
+
+
+            <p>
+
+                aku tau kamu sebel serik kesel
+                gara gara hal itu,
+
+                <br><br>
+
+                karna kelalaian ku mengetik salah
+                satu huruf menjadi salah arti
+
+            </p>
+
+
+            <p>
+
+                aku cuma berharap kamu bisa
+                memaafkan kesalahan ku yang
+                sangat fatal ini
+
+                <br><br>
+
+                karna typo "t" menjadi "g",
+                arti nya jadi fatal banget
+
+            </p>
+
+
+            <p>
+
+                aku minta maaf
+
+                <br>
+
+                minta maaaf banget
+
+                <img
+                    src="gambar4.png"
+                    alt="Hati"
+                    class="inline-image">
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             FOTO
+        ================================== -->
+
+        <div class="photo-section">
+
+
+            <p class="photo-title">
+
+                ini pengingat bahwa aku sangat
+                sayang sama kamu
+
+            </p>
+
+
+            <div class="photo-frame">
+
+
+                <img
+                    src="foto.jpg"
+                    alt="Foto kita">
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <div class="footer">
+
+
+            sekali lagi aku minta maaf banget
+            sama kamu
+
+            <br>
+
+            aku tidak akan menjadi menyebalkan
+            lagi besok besok
+
+            <br><br>
+
+
+            <!-- GAMBAR 4 -->
+
+            <img
+                src="gambar4.png"
+                alt="Hati"
+                class="footer-image">
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+    function openMessage() {
+
+
+        const screen1 =
+            document.getElementById("screen1");
+
+
+        const screen2 =
+            document.getElementById("screen2");
+
+
+        const music =
+            document.getElementById("backgroundMusic");
+
+
+        /*
+            =================================
+            PUTAR LAGU
+            =================================
+
+            Karena fungsi ini dipanggil
+            langsung oleh klik pengguna,
+            browser mengizinkan audio
+            untuk mulai dimainkan.
+        */
+
+        music.volume = 0.7;
+
+        music.currentTime = 0;
+
+        music.play().catch(error => {
+
+            console.log(
+                "Musik tidak dapat diputar:",
+                error
+            );
+
+        });
+
+
+
+        /*
+            =================================
+            HILANGKAN SCREEN 1
+            =================================
+        */
+
+        screen1.classList.add("hidden");
+
+
+
+        /*
+            Tunggu animasi selesai
+        */
+
+        setTimeout(() => {
+
+
+            screen1.style.display = "none";
+
+
+            /*
+                Tampilkan screen kedua
+            */
+
+            screen2.classList.add("show");
+
+
+            /*
+                Kembali ke bagian
+                paling atas halaman
+            */
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+        }, 700);
+
+
+    }
+
+
+</script>
+```
+
+</body>
+
+</html>
